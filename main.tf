@@ -69,7 +69,7 @@ resource "google_notebooks_instance" "instance" {
   }
 
   instance_owners = ["admin@hashicorptest.com"]
-  service_account = "cloud-composer-sa-id@modular-scout-345114.iam.gserviceaccount.com"
+  service_account = "1080178441487-compute@developer.gserviceaccount.com"
  
   kms_key = google_kms_crypto_key.example-key.id
   install_gpu_driver = true
