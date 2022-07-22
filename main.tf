@@ -19,6 +19,12 @@ data "google_compute_subnetwork" "my_subnetwork" {
   region = "us-central1"
 }
 
+resource "google_service_account" "vertex-ai-sa" {
+  account_id   = "vertex-ai-sa-id1"
+  display_name = "Service Account"
+  project = var.project
+}
+
 #keyring creation
 resource "google_kms_key_ring" "keyring" {
   name     = var.keyring_name
@@ -69,7 +75,7 @@ resource "google_notebooks_instance" "instance" {
   }
 
   instance_owners = ["admin@hashicorptest.com"]
-  service_account = null
+  service_account = google_service_account.vertex-ai-sa.email
  
   kms_key = google_kms_crypto_key.example-key.id
   install_gpu_driver = true
