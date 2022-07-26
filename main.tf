@@ -22,7 +22,7 @@ data "google_compute_subnetwork" "my_subnetwork" {
 resource "google_service_account" "vertex-ai-sa" {
   account_id   = "vertex-ai-sa-id1"
   display_name = "Service Account"
-  project = var.project
+  project = var.project_id
 }
 
 #keyring creation
