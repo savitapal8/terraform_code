@@ -75,9 +75,9 @@ resource "google_notebooks_instance" "instance" {
   }
 
   instance_owners = ["admin@hashicorptest.com"]
-  #service_account = google_service_account.vertex-ai-sa.email
+  service_account = google_service_account.vertex-ai-sa.email
  
-  #kms_key = google_kms_crypto_key.example-key.id
+  kms_key = google_kms_crypto_key.example-key.id
   install_gpu_driver = true
   boot_disk_type = "PD_SSD"
   boot_disk_size_gb = 110
