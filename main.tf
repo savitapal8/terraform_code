@@ -83,7 +83,7 @@ resource "google_notebooks_instance" "instance" {
   boot_disk_size_gb = 110
 
   no_public_ip = true
-  no_proxy_access = false
+  no_proxy_access = true
 
   network = data.google_compute_network.my_network.id
   subnet = data.google_compute_subnetwork.my_subnetwork.id
@@ -94,7 +94,7 @@ resource "google_notebooks_instance" "instance" {
 
   metadata = {
     terraform = "true"
-    proxy-mode = "service_account"
+    proxy-mode = "servicemain_account"
   }
 }
 
